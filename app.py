@@ -2,14 +2,14 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pickle
 import numpy as np
-from sklearn.datasets import load_iris
+from sklearn import datasets
 
 # Load trained model
 with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
 # Load Iris dataset to get class names
-iris = load_iris()
+iris = datasets.load_iris()
 class_names = iris.target_names  # ['setosa', 'versicolor', 'virginica']
 
 # Initialize FastAPI app
